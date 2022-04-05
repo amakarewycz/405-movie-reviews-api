@@ -15,25 +15,25 @@ githublink = 'https://github.com/amakarewycz/405-movie-reviews'
 
 class RatingStyle(Enum):
     Negative = { 'padding': '12px',
-                    'font-size': '22px',
+                    'font-size': '18px',
                     # 'height': '400px',
-                    'border': "#FF7A33",
+                    'border': "thick red solid",
                     'color': 'rgb(255, 255, 255)',
                     'backgroundColor': '#536869',
                     'textAlign': 'left',
                     }
     Positive = { 'padding': '12px',
-                    'font-size': '22px',
+                    'font-size': '18px',
                     # 'height': '400px',
-                    'border': "#64FF33",
+                    'border': "thick lime solid",
                     'color': 'rgb(255, 255, 255)',
                     'backgroundColor': '#536869',
                     'textAlign': 'left',
                     }
-    Neutral = { 'padding': '12px',
-                    'font-size': '22px',
+    Neutral = { 'padding': '18px',
+                    'font-size': '18px',
                     # 'height': '400px',
-                    'border': "#DCDEB3",
+                    'border': "thick yellow solid",
                     'color': 'rgb(255, 255, 255)',
                     'backgroundColor': '#536869',
                     'textAlign': 'left',
@@ -80,7 +80,7 @@ app.layout = html.Div(children=[
     html.Div([
         html.H1(['Movie Reviews']),
         html.Div([
-            html.Div(id="movie-container",children=[
+            html.Div(id='movie-container',children=[
                 html.Button(id='eek-button', n_clicks=0, children='Click to randomly select a Movie', style={'color': 'rgb(255, 255, 255)'}),
                 html.Div(id='movie-title', children=[]),
                 html.Div(id='movie-release', children=[]),
@@ -172,8 +172,8 @@ def on_data(ts, data):
         raise PreventUpdate
     else:
         message = sentiment_scores(data['overview'])
-        return data['title'], data['release_date'], data['overview'], \
-               message[1],message[2],message[3],message[4],RatingStyle[message[4]].value
+        return [data['title'], data['release_date'], data['overview'], \
+               message[1],message[2],message[3],message[4],RatingStyle[message[4]].value]
 
     
 
