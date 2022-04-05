@@ -11,7 +11,7 @@ from enum import Enum
 tabtitle = 'Movies'
 sourceurl = 'https://www.kaggle.com/tmdb/tmdb-movie-metadata'
 sourceurl2 = 'https://developers.themoviedb.org/3/getting-started/introduction'
-githublink = 'https://github.com/amakarewycz/405-movie-reviews'
+githublink = 'https://github.com/amakarewycz/405-movie-reviews-api'
 
 class RatingStyle(Enum):
     Negative = { 'padding': '12px',
